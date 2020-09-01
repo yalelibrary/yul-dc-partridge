@@ -18,5 +18,6 @@ RSpec.describe Partridge::Pairtree do
     expect(described_class.oid_to_pairtree(123_456_700)).to eq('00/12/34/56/70')
     expect(described_class.oid_to_pairtree(1_234_567_800)).to eq('00/12/34/56/78/00')
     expect(described_class.oid_to_pairtree(1_234_567_890)).to eq('90/12/34/56/78/90')
+    expect(described_class.oid_to_pairtree(1_014_543)).to eq('43/10/14/54')
   end
 end

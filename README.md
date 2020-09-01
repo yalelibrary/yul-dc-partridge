@@ -20,7 +20,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This method takes an oid as an integer and returns a path as a string.
+```ruby
+Partridge::Pairtree.oid_to_pairtree(oid)
+```
+```bash
+> Partridge::Pairtree.oid_to_pairtree(123456)
+=> "56/12/34/56"
+```
+
+### Sample implementation
+```ruby
+def self.remote_ptiff_path(oid)
+  pairtree_path = Partridge::Pairtree.oid_to_pairtree(oid)
+  File.join("ptiffs", pairtree_path, "#{oid}.tif" )
+end
+```
+
+```bash
+> self.remote_ptiff_path(123456)
+=> "ptiffs/56/12/34/56/123456.tif"
+```
 
 ## Development
 
