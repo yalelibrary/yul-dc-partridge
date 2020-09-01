@@ -10,6 +10,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+          name: Bundler
+          command: |
+            gem install bundler -v 2.1.4 && bundle
+      - run:
+          name: rspec
+          command:  |
+            bundle exec rspec
