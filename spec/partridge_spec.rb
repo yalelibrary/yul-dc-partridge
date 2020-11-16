@@ -20,4 +20,9 @@ RSpec.describe Partridge::Pairtree do
     expect(described_class.oid_to_pairtree(1_234_567_890)).to eq('90/12/34/56/78/90')
     expect(described_class.oid_to_pairtree(1_014_543)).to eq('43/10/14/54')
   end
+
+  it 'returns a pair tree for single-digit oids' do
+    expect(described_class.oid_to_pairtree(3)).not_to eq nil
+    expect(described_class.oid_to_pairtree(3)).to eq '03'
+  end
 end
