@@ -7,7 +7,7 @@ module Partridge
   # Takes an oid and returns a string representing a pairtree path
   class Pairtree
     def self.oid_to_pairtree(oid)
-      formatted_oid = format('%02d', oid)
+      formatted_oid = format('%<number>02d', number: oid)
       prefix = formatted_oid[-2..-1]
       digest_path_structure = oid.to_s.scan(/../)
       digest_path_structure.each do |oiddir|
